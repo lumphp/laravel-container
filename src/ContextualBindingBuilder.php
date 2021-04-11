@@ -2,15 +2,15 @@
 
 namespace Illuminate\Container;
 
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Container\ContextualBindingBuilder as ContextualBindingBuilderContract;
+use Illuminate\Container\Contracts\Container;
+use Illuminate\Container\Contracts\ContextualBindingBuilder as ContextualBindingBuilderContract;
 
 class ContextualBindingBuilder implements ContextualBindingBuilderContract
 {
     /**
      * The underlying container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var \Illuminate\Container\Contracts\Container
      */
     protected $container;
 
@@ -31,7 +31,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
     /**
      * Create a new contextual binding builder.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \Illuminate\Container\Contracts\Container  $container
      * @param  string|array  $concrete
      * @return void
      */
@@ -79,6 +79,20 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
             $taggedServices = $container->tagged($tag);
 
             return is_array($taggedServices) ? $taggedServices : iterator_to_array($taggedServices);
+        });
+    }
+
+    /**
+     * Specify the configuration item to bind as a primitive.
+     *
+     * @param  string  $key
+     * @param  ?string  $default
+     * @return void
+     */
+    public function giveConfig($key, $default = null)
+    {
+        $this->give(function ($container) use ($key, $default) {
+            return $container->get('config')->get($key, $default);
         });
     }
 }
