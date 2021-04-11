@@ -2,15 +2,15 @@
 
 namespace Illuminate\Container;
 
-use Illuminate\Container\Contracts\Container;
-use Illuminate\Container\Contracts\ContextualBindingBuilder as ContextualBindingBuilderContract;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Container\ContextualBindingBuilder as ContextualBindingBuilderContract;
 
 class ContextualBindingBuilder implements ContextualBindingBuilderContract
 {
     /**
      * The underlying container instance.
      *
-     * @var \Illuminate\Container\Contracts\Container
+     * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
@@ -31,7 +31,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
     /**
      * Create a new contextual binding builder.
      *
-     * @param  \Illuminate\Container\Contracts\Container  $container
+     * @param  \Illuminate\Contracts\Container\Container  $container
      * @param  string|array  $concrete
      * @return void
      */

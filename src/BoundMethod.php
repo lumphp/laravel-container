@@ -3,7 +3,7 @@
 namespace Illuminate\Container;
 
 use Closure;
-use Illuminate\Container\Contracts\BindingResolutionException;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use InvalidArgumentException;
 use ReflectionFunction;
 use ReflectionMethod;

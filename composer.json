@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "psr/container": "^1.0"
+        "psr/container": "^1.0",
+        "lumphp/laravel-contracts": "^8.0"
     },
     "provide": {
         "psr/container-implementation": "1.0"
